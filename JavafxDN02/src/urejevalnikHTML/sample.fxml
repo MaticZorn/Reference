@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.input.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.web.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="urejevalnikHTML.UrejevalnikKontroler">
+   <top>
+      <BorderPane BorderPane.alignment="CENTER">
+         <top>
+            <MenuBar BorderPane.alignment="CENTER">
+              <menus>
+                <Menu text="_Datoteka">
+                  <items>
+                    <MenuItem onAction="#handleOdpri" text="_Odpri">
+                           <accelerator>
+                              <KeyCodeCombination alt="UP" code="O" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                           </accelerator></MenuItem>
+                        <MenuItem onAction="#handleShrani" text="_Shrani">
+                           <accelerator>
+                              <KeyCodeCombination alt="UP" code="S" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                           </accelerator>
+                        </MenuItem>
+                        <MenuItem onAction="#handleIzhod" text="_Izhod">
+                           <accelerator>
+                              <KeyCodeCombination alt="UP" code="X" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                           </accelerator>
+                        </MenuItem>
+                  </items>
+                </Menu>
+                <Menu text="_Iskanje">
+                  <items>
+                    <MenuItem onAction="#handleNajdi" text="_Najdi">
+                           <accelerator>
+                              <KeyCodeCombination alt="UP" code="F" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                           </accelerator></MenuItem>
+                        <MenuItem onAction="#handleNajdiVse" text="Najdi vse in _Zamenjaj">
+                           <accelerator>
+                              <KeyCodeCombination alt="UP" code="R" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                           </accelerator>
+                        </MenuItem>
+                  </items>
+                </Menu>
+                <Menu text="_Pomoc">
+                  <items>
+                    <MenuItem onAction="#handleAvtor" text="_Avtor">
+                           <accelerator>
+                              <KeyCodeCombination alt="UP" code="A" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                           </accelerator></MenuItem>
+                  </items>
+                </Menu>
+              </menus>
+            </MenuBar>
+         </top>
+         <bottom>
+            <ToolBar prefHeight="40.0" BorderPane.alignment="CENTER">
+              <items>
+                <Button mnemonicParsing="false" onAction="#handleOdpri" prefWidth="50.0" text="Odpri" />
+                  <Button layoutX="10.0" layoutY="12.0" mnemonicParsing="false" onAction="#handleShrani" prefWidth="50.0" text="Shrani" />
+                  <Button layoutX="60.0" layoutY="12.0" mnemonicParsing="false" onAction="#handleIzhod" prefWidth="50.0" text="Zapri" />
+                  <Button layoutX="114.0" layoutY="12.0" mnemonicParsing="false" onAction="#handleNajdi" prefWidth="50.0" text="Najdi" />
+                  <Button layoutX="161.0" layoutY="12.0" mnemonicParsing="false" onAction="#handleNajdiVse" text="Najdi vse in Zamenjaj" />
+              </items>
+            </ToolBar>
+         </bottom>
+      </BorderPane>
+   </top>
+   <bottom>
+      <Label fx:id="status" text="Status:" BorderPane.alignment="CENTER_LEFT" />
+   </bottom>
+   <center>
+      <BorderPane BorderPane.alignment="CENTER">
+         <center>
+            <Accordion fx:id="accordion" BorderPane.alignment="CENTER">
+              <panes>
+                <TitledPane fx:id="urejevalnikHTML" animated="false" onMouseClicked="#handleBH" text="Urejanje HTML">
+                     <content>
+                        <HTMLEditor fx:id="editorHTML" htmlText="&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body contenteditable=&quot;true&quot;&gt;&lt;/body&gt;&lt;/html&gt;" prefHeight="200.0" prefWidth="506.0" />
+                     </content>
+                  </TitledPane>
+                <TitledPane fx:id="urejevalnikSimple" animated="false" onMouseClicked="#handleHB" text="Urejanje besedila">
+                     <content>
+                        <TextArea fx:id="editorSimple" prefHeight="200.0" prefWidth="200.0" />
+                     </content>
+                  </TitledPane>
+                  <TitledPane fx:id="dnevnik" animated="false" layoutX="10.0" layoutY="36.0" text="Dnevnik">
+                     <content>
+                        <TextArea fx:id="log" prefHeight="200.0" prefWidth="200.0" />
+                     </content>
+                  </TitledPane>
+              </panes>
+            </Accordion>
+         </center>
+         <bottom>
+            <HBox BorderPane.alignment="CENTER">
+               <children>
+                  <Label text="Iskano besedilo:">
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
+                  </Label>
+                  <TextField fx:id="search">
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
+                     <padding>
+                        <Insets left="10.0" />
+                     </padding></TextField>
+                  <Label text="Novo besedilo:">
+                     <HBox.margin>
+                        <Insets left="40.0" />
+                     </HBox.margin>
+                  </Label>
+                  <TextField fx:id="replace">
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
+                     <padding>
+                        <Insets left="10.0" />
+                     </padding></TextField>
+               </children>
+            </HBox>
+         </bottom>
+      </BorderPane>
+   </center>
+</BorderPane>
